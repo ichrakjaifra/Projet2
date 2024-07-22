@@ -8,14 +8,14 @@
 }
 body{
   min-height: 100vh;
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: #08230d; */
+  /* background: #1c722b; */
   padding: 30px;
-  /* background-image: url('public/images/1-enhanced.png');
+  /* background-image: url('/images/1-enhanced.png');
   background-size: cover;
-  background-position: center; */
+  background-position: center;  */
 }
 .container{
   position: relative;
@@ -25,7 +25,7 @@ body{
   padding: 40px 30px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   perspective: 2700px;
-  background-image: url('public/images/1-enhanced.png'); /* Ajout de l'image de fond */
+  background-image: url('/images/1-enhanced.png'); /* Ajout de l'image de fond */
   background-size: cover; /* Ajuste l'image pour couvrir tout le conteneur */
   background-position: center; /* Centre l'image de fond */
 }
