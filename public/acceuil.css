@@ -465,7 +465,8 @@ footer .container ul{
 }
 
 .Plantation{
-  background-color: #dfe6e9;
+  /* background-color: #dfe6e9; */
+  background-color: #08230d;
   -webkit-transform: perspective(900px);
   -webkit-transform-style: preserve-3d;
   /* height: 400px; */
@@ -474,7 +475,8 @@ footer .container ul{
 .title{
   width:100%;
   text-align: center;
-  color: rgb(51, 42, 43);
+  /* color: rgb(51, 42, 43); */
+  color: white;
 }
 
 .title h1{
@@ -488,9 +490,9 @@ footer .container ul{
   left: 100px;
   width: 250px;
   height: 350px;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
-  background: linear-gradient(rgb(131, 91, 23),rgb(131, 91, 23));
+  background: linear-gradient(rgb(131, 91, 23),rgb(118, 79, 13));
   /* transition:.6s;
   
   transform: rotatex(75deg) translatey(-200px) translatez(-100px); */
@@ -531,7 +533,7 @@ footer .container ul{
   left: 550px;
   width: 250px;
   height: 350px;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
   background: linear-gradient(rgb(93,94,170),rgb(93,66,103));
   /* animation: animate 1s linear infinite;
@@ -556,9 +558,9 @@ footer .container ul{
   left: 1000px;
   width: 250px;
   height: 350px;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
-  background: linear-gradient(#9ea629, #9ea629);
+  background: linear-gradient(#9ea629, #8c9518);
   /* transition:.6s;
   
   transform: rotatex(75deg) translatey(-200px) translatez(-100px); */
