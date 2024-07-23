@@ -1,22 +1,24 @@
 //Importation des modules
 const express = require('express');//framework pour créer des applications web
 const bodyParser = require('body-parser');//middleware pour parser les corps des requêtes HTTP
-var cors=require('cors');
-var path=require('path');
+var cors=require('cors');// Middleware pour gérer les requêtes cross-origin (CORS)
+var path=require('path');// Module pour manipuler les chemins de fichiers
 const mysql = require('mysql2');//module pour interagir avec une base de données MySQL
-const app = express();
+const app = express(); // Initialisation de l'application Express
 
 //Configuration de l'application
 app.use(bodyParser.urlencoded({ extended: true }));// Middleware pour parser les données du formulaire
-app.use(cors());
+app.use(cors());// Activer CORS pour toutes les routes
 
 app.use(express.static(path.join(__dirname,'')));// Servir les fichiers statiques depuis le répertoire courant
 
-app.set('views', path.join(__dirname,'views'))
-app.set('view engine', 'ejs');
+// Configuration du moteur de vues
+app.set('views', path.join(__dirname,'views'))// Définir le dossier des vues
+app.set('view engine', 'ejs');// Utiliser EJS comme moteur de templates
 
+// Route pour la page d'accueil
 app.get('/',function(request, response){
-  response.render('index');
+  response.render('index'); // Afficher la vue 'index.ejs'
 });
 
 
@@ -36,7 +38,7 @@ console.log('Connected to database');
 
 // Route pour gérer la soumission du formulaire d'inscription
 app.post('/register', (req, res) => {
-  const { nom, email, password, role } = req.body;
+  const { nom, email, password } = req.body;// Récupérer les données du formulaire
   console.log('Données reçues :', req.body);
 
   // Vérifier si l'email existe déjà en base de données
@@ -51,6 +53,7 @@ app.post('/register', (req, res) => {
       // L'email existe déjà en base de données
       return res.send('E-mail déjà enregistré.');
     } else {
+      var role='user';// Définir le rôle par défaut de l'utilisateur
       // L'email n'existe pas en base de données, procéder à l'inscription
       const insertSql = 'INSERT INTO users (nom, email, password, role) VALUES (?, ?, ?, ?)';
       db.query(insertSql, [nom, email, password, role], (err, result) => {
@@ -109,8 +112,9 @@ app.post('/register', (req, res) => {
 });*/
 //pour login 
 
+// Route pour gérer la soumission du formulaire de connexion
 app.post('/login', (req, res) => {
-  const { mail, password } = req.body;
+  const { mail, password } = req.body;// Récupérer les données du formulaire
   const sql = 'SELECT role FROM users WHERE email = ? AND password = ?';
   db.query(sql, [mail, password], (err, results) => {
     if (err) {
@@ -139,16 +143,29 @@ app.get('/acceuil', (req, res) => {
   res.render('acceuil');
 });
 
+app.get('/test', (req, res) => {
+  res.render('test');
+});
+
+app.get('/index', (req, res) => {
+  res.render('index');
+});
+
+// app.get('/stades', (req, res) => {
+//   res.render('stades');
+// });
+
 
 // Route pour récupérer et afficher la liste des utilisateurs inscrits
 app.get('/users', (req, res) => {
   const sql = 'SELECT * FROM users';
   db.query(sql, (err, results) => {
     if (err) throw err;
-    res.send(results);
+    res.send(results);// Envoyer la liste des utilisateurs en réponse
   });
 });
 
+// Démarrer le serveur sur le port 8000
 app.listen(8000,function(){
   console.log("heard en 8000");
 });
