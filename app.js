@@ -1,6 +1,11 @@
 //Importation des modules
 const express = require('express');//framework pour créer des applications web
 const bodyParser = require('body-parser');//middleware pour parser les corps des requêtes HTTP
+
+const session = require('express-session'); // Importer express-session
+const flash = require('connect-flash'); // Importer connect-flash
+
+
 var cors=require('cors');// Middleware pour gérer les requêtes cross-origin (CORS)
 var path=require('path');// Module pour manipuler les chemins de fichiers
 const mysql = require('mysql2');//module pour interagir avec une base de données MySQL
@@ -35,6 +40,20 @@ if (err) throw err;
 console.log('Connected to database');
 });
 
+// Configuration de session et de flash
+app.use(session({
+  secret: '123456',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Pour HTTPS, mettez secure: true
+}));
+app.use(flash());
+
+// Middleware pour injecter les messages flash dans les vues
+app.use((req, res, next) => {
+  res.locals.message = req.flash('message');
+  next();
+});
 
 // Route pour gérer la soumission du formulaire d'inscription
 app.post('/register', (req, res) => {
@@ -51,7 +70,10 @@ app.post('/register', (req, res) => {
 
     if (results.length > 0) {
       // L'email existe déjà en base de données
-      return res.send('E-mail déjà enregistré.');
+      // return res.send('E-mail déjà enregistré.');
+      console.log('E-mail déjà enregistré .');
+        req.flash('message', 'E-mail déjà enregistré !');
+        res.redirect('/index');
     } else {
       var role='user';// Définir le rôle par défaut de l'utilisateur
       // L'email n'existe pas en base de données, procéder à l'inscription
@@ -61,10 +83,34 @@ app.post('/register', (req, res) => {
           console.error('Erreur lors de l\'inscription de l\'utilisateur :', err);
           return res.status(500).send('Erreur lors de l\'inscription de l\'utilisateur');
         }
+        // console.log('Utilisateur inscrit avec succès.');
+        // res.send('Inscription réussie !');
         console.log('Utilisateur inscrit avec succès.');
-        res.send('Inscription réussie !');
+        req.flash('message', 'Inscription réussie !');
+        res.redirect('/index');
       });
     }
+  });
+});
+// Route to display users
+app.get('/utilisateurs', (req, res) => {
+  db.query("SELECT * FROM users where role='user'", (err, results) => {
+      if (err) throw err;
+      res.render('utilisateurs', { users: results });
+  });
+});
+
+// Route to delete a user
+app.post('/delete-user', (req, res) => {
+  const userId = req.body.id; // Récupérer l'ID de l'utilisateur du corps de la requête
+
+  // Utiliser l'ID pour mettre à jour la colonne 'etat'
+  db.query('UPDATE users SET etat = FALSE WHERE id = ? AND role = "user"', [userId], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la suppression de l\'utilisateur :', err);
+      return res.status(500).send('Erreur lors de la suppression de l\'utilisateur');
+    }
+    res.redirect('/utilisateurs'); // Redirection vers la page des utilisateurs
   });
 });
 
@@ -129,7 +175,9 @@ app.post('/login', (req, res) => {
         res.redirect('/acceuil'); // Redirection vers accueil.ejs pour les utilisateurs normaux
       }
     } else {
-      res.send('Identifiants incorrects'); // Gérer le cas où aucun utilisateur correspondant n'est trouvé
+      console.log('Utilisateur inscrit avec succès.');
+        req.flash('message', 'mail ou mdp inccorect  !');
+        res.redirect('/index');
     }
   });
 });
@@ -149,6 +197,9 @@ app.get('/test', (req, res) => {
 
 app.get('/index', (req, res) => {
   res.render('index');
+});
+app.get('/utilisateur', (req, res) => {
+  res.render('utilisateu');
 });
 
 // app.get('/stades', (req, res) => {

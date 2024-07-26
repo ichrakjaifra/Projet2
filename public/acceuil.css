@@ -1,62 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
+/* Style global pour le corps de la page */
 body{
     margin: 0;
-    background-color: #000;
-    color: #eee;
-    font-family: Poppins;
-    font-size: 12px;
+    background-color: #000;/* Fond noir */
+    color: #eee;/* Couleur du texte en gris clair */
+    font-family: Poppins;/* Utilisation de la police Poppins */
+    font-size: 12px;/* Taille de police de 12px */
 }
 
 /* Style pour les liens dans la barre de navigation */
 nav a{
-    text-decoration: none;
+    text-decoration: none;/* Suppression du soulignement des liens */
 }
 /* Style du header */
 header{
-    width: 1140px;
-    max-width: 80%;
+    width: 1140px;/* Largeur fixe de 1140px */
+    max-width: 80%;/* Largeur maximale de 80% de l'écran */
     margin: auto;/* Centrage horizontal */
-    height: 50px;
-    display: flex;
+    height: 50px;/* Hauteur fixe de 50px */
+    display: flex;/* Utilisation de Flexbox pour l'alignement */
     align-items: center;/* Alignement vertical centré */
     position: relative;
     z-index: 100;/* Assure que le header est au-dessus des autres éléments */
 }
 /* Style pour les liens dans le header */
 header a{
-    color: #eee;
-    margin-right: 5px;
-    padding: 5px 10px;
+    color: #eee;/* Couleur du texte en gris clair */
+    margin-right: 5px;/* Marge à droite */
+    padding: 5px 10px;/* Padding interne */
     transition: 0.2s;/* Transition pour les changements de style */
 }
 /* Style pour les liens actifs */
 a.active{
     /* background: #14ff72cb; */
-    background-color: #29893a;
+    background-color: #29893a;/* Fond vert foncé */
     border-radius: 2px;/* Coins arrondis */
 }
 /* Style pour les liens au survol */
 header a:hover{
     /* background: #14ff72cb; */
-    background: #29893a;
-    border-radius: 2px;
+    background: #29893a;/* Fond vert foncé au survol */
+    border-radius: 2px;/* Coins arrondis */
 }
-
+/* Style pour le logo */
 .logo {
   /* width: 98px;
   height: 97px; */
   width: 50%;
   height: 50px;
   /* position: absolute; */
-  margin-bottom: 10px;
-  padding-left: 15%;
+  margin-bottom: 10px;/* Marge en bas */
+  padding-left: 15%;/* Padding à gauche */
 }
 /* Section du slider */
 .slider{
-    height: 100vh;
+    height: 100vh;/* Hauteur de la vue */
     margin-top: -50px;/* Décalage vers le haut */
-    width: 100vw;
+    width: 100vw;/* Largeur de la vue */
     overflow: hidden;/* Cache le dépassement */
     position: relative;
 }
@@ -64,23 +66,24 @@ header a:hover{
     width: 100%;
     height: 100%;
     position: absolute;
-    inset: 0 0 0 0;/* Positionnement */
+    inset: 0 0 0 0;/* Positionnement  complet*/
 }
 .slider .list .item img{
     width: 100%;
     height: 100%;
     object-fit: cover;/* Couvre toute la zone */
 }
+/* Contenu du slider */
 .slider .list .item .content{
     position: absolute;
-    top: 20%;
-    width: 1140px;
-    max-width: 80%;
+    top: 20%;/* Positionnement en haut */
+    width: 1140px;/* Largeur fixe */
+    max-width: 80%;/* Largeur maximale */
     left: 50%;/* Centrage horizontal */
     transform: translateX(-50%);/* Centrage horizontal */
-    padding-right: 30%;
-    box-sizing: border-box;
-    color: #fff;
+    padding-right: 30%;/* Padding à droite */
+    box-sizing: border-box;/* Inclut le padding et la bordure dans les dimensions */
+    color: #fff;/* Couleur du texte en blanc */
     text-shadow: 0 5px 10px #0004;/* Ombre du texte */
 }
 /* Style pour les titres et types dans le slider */
@@ -117,25 +120,25 @@ header a:hover{
     letter-spacing: 3px;/* Espacement des lettres au survol */
 }
 .slider .list .item .button button:nth-child(2){
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #eee;
+    background-color: transparent;/* Fond transparent */
+    border: 1px solid #fff;/* Bordure blanche */
+    color: #eee;/* Couleur du texte en gris clair */
 }
 /* Section des vignettes */  
 .thumbnail{
     position: absolute;
-    bottom: 50px;
-    left: 50%;
-    width: max-content;
-    z-index: 100;
-    display: flex;
-    gap: 20px;
+    bottom: 50px;/* Positionnement en bas */
+    left: 50%;/* Centrage horizontal */
+    width: max-content;/* Largeur au maximum du contenu */
+    z-index: 100;/* Au-dessus des autres éléments */
+    display: flex;/* Affichage en flex */
+    gap: 20px;/* Espace entre les éléments */
 }
 
 .thumbnail .item{
     width: 150px;
     height: 220px; 
-    flex-shrink: 0;
+    flex-shrink: 0;/* Ne se réduit pas */
     /* top: 150px; */
     position: relative;
 }
@@ -143,23 +146,23 @@ header a:hover{
 .thumbnail .item img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    object-fit: cover;/* Couvre toute la zone */
+    border-radius: 20px;/* Coins arrondis */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);/* Ombre portée */
 }
 
 
 /* Section des flèches de navigation */
 .nextPrevArrows{
     position: absolute;
-    top: 80%;
-    right: 52%;
-    z-index: 100;
-    width: 300px;
-    max-width: 30%;
-    display: flex;
+    top: 80%;/* Positionnement en haut */
+    right: 52%; /* Positionnement à droite */
+    z-index: 100;/* Au-dessus des autres éléments */
+    width: 300px;/* Largeur fixe */
+    max-width: 30%;/* Largeur maximale */
+    display: flex;/* Affichage en flex */
     gap: 10px;/* Espace entre les éléments */
-    align-items: center;
+    align-items: center;/* Alignement vertical centré */
 }
 .nextPrevArrows button{
     width: 40px;
@@ -167,12 +170,12 @@ header a:hover{
     border-radius: 50%;
     /* background-color: #14ff72cb; */
     background-color: #29893a;
-    border: none;
-    color: #fff;
-    font-family: monospace;
-    font-weight: bold;
-    transition: .5s;
-    cursor: pointer;
+    border: none;/* Pas de bordure */
+    color: #fff;/* Couleur du texte en blanc */
+    font-family: monospace;/* Police monospace */
+    font-weight: bold;/* Texte en gras */
+    transition: .5s; /* Transition pour les changements de style */
+    cursor: pointer;/* Curseur en mode pointeur */
 }
 .nextPrevArrows button:hover{
     background-color: #fff;
@@ -213,31 +216,32 @@ footer .container a{
   color: white;
 } */
 
+/* Section footer */
 footer {
   background-color: #08230d;
   color: #fff;
-  padding: 2rem 0;
-  margin-top: 400px;
+  padding: 2rem 0;/* Padding en haut et en bas */
+  margin-top: 400px;/* Marge en haut */
 }
 
 .footer-container {
-  display: inline-flex;
+  display: inline-flex;/* Affichage en flex */
   /* justify-content: space-between; */
   /* flex-wrap: wrap; */
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem; 
+  max-width: 1400px;/* Largeur maximale */
+  margin: 0 auto;/* Centrage horizontal */
+  padding: 0 2rem; /* Padding à gauche et à droite */
 }
 
 .footer-column {
-  flex: 1;
-  min-width: 200px;
-  margin: 1rem 0;
-  padding-left: 10%;
+  flex: 1; /* Prend tout l'espace disponible */
+  min-width: 200px;/* Largeur minimale */
+  margin: 1rem 0;/* Marge en haut et en bas */
+  padding-left: 10%;/* Padding à gauche */
 }
 
 .footer-column h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem;/* Marge en bas */
 }
 
 .footer-column p {
@@ -309,31 +313,31 @@ footer {
 .slider .list .item:nth-child(1) .content .description,
 .slider .list .item:nth-child(1) .content .buttons
 {
-    transform: translateY(40px);
-    filter: blur(20px);
-    opacity: 0;
-    animation: showContent .5s 1s linear 1 forwards;
+    transform: translateY(40px);/* Translation de 40px vers le bas */
+    filter: blur(20px);/* Application d'un flou de 20px */
+    opacity: 0;/* Opacité initiale à 0 (invisible) */
+    animation: showContent .5s 1s linear 1 forwards;/* Animation pour afficher le contenu */
 }
 /* Animation du texte dans le premier élément du slider */
 @keyframes showContent{
     to{
-        transform: translateY(0px);
-        filter: blur(0px);
-        opacity: 1;
+        transform: translateY(0px);/* Remettre la translation à 0 */
+        filter: blur(0px);/* Supprimer le flou */
+        opacity: 1;/* Rendre le texte complètement visible */
     }
 }
 /* Définition de délais d'animation spécifiques pour chaque élément pour un effet de cascade */
 .slider .list .item:nth-child(1) .content .title{
-    animation-delay: 0.4s !important;
+    animation-delay: 0.4s !important;/* Délai d'animation pour le titre */
 }
 .slider .list .item:nth-child(1) .content .type{
-    animation-delay: 0.6s !important;
+    animation-delay: 0.6s !important;/* Délai d'animation pour le type */
 }
 .slider .list .item:nth-child(1) .content .description{
-    animation-delay: 0.8s !important;
+    animation-delay: 0.8s !important;/* Délai d'animation pour la description */
 }
 .slider .list .item:nth-child(1) .content .buttons{
-    animation-delay: 1s !important;
+    animation-delay: 1s !important;/* Délai d'animation pour les boutons */
 }
 
 /* Animation pour le clic sur le bouton suivant */
@@ -465,17 +469,15 @@ footer .container ul{
 }
 
 .Plantation{
-  /* background-color: #dfe6e9; */
   background-color: #08230d;
   -webkit-transform: perspective(900px);
   -webkit-transform-style: preserve-3d;
-  /* height: 400px; */
-}
+  
+} 
 
 .title{
   width:100%;
-  text-align: center;
-  /* color: rgb(51, 42, 43); */
+  text-align: center; 
   color: white;
 }
 
@@ -493,9 +495,7 @@ footer .container ul{
   margin-top: 30px;
   margin-bottom: 10px;
   background: linear-gradient(rgb(131, 91, 23),rgb(118, 79, 13));
-  /* transition:.6s;
-  
-  transform: rotatex(75deg) translatey(-200px) translatez(-100px); */
+
   box-shadow: 0px 20px 60px rgba(0,0,0, 0.5);
 }
 
@@ -511,6 +511,7 @@ footer .container ul{
   height:120px;
 }
 .hh{
+  padding-top: 15px;
   font-size:25px;
   font-family: 'Abel', sans-serif;
   color:rgb(255,255,255);
@@ -536,11 +537,8 @@ footer .container ul{
   margin-top: 30px;
   margin-bottom: 10px;
   background: linear-gradient(rgb(93,94,170),rgb(93,66,103));
-  /* animation: animate 1s linear infinite;
-  transition:.6s;
   
-  transform: rotatex(75deg) translatey(-200px) translatez(-100px); */
-  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+   box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
 }
 .card2:hover{
    transform: rotatex(0deg);
@@ -561,10 +559,8 @@ footer .container ul{
   margin-top: 30px;
   margin-bottom: 10px;
   background: linear-gradient(#9ea629, #8c9518);
-  /* transition:.6s;
   
-  transform: rotatex(75deg) translatey(-200px) translatez(-100px); */
-  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
+   box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.5);
 }
 .card3:hover{
    transform: rotatex(0deg);
@@ -644,4 +640,6 @@ footer .container ul{
     top: unset;
     margin-top: 20px;
   }
-}
+}  
+
+

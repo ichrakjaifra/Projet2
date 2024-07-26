@@ -2,6 +2,7 @@
 /* Reset. */
 * {
   box-sizing: border-box;
+  /* Appliquer le modèle de boîte border-box à tous les éléments pour inclure le padding et la bordure dans les dimensions de l'élément */
 }
 
 body {
@@ -9,12 +10,14 @@ body {
   padding: 0;
   font-size: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  /* Réinitialiser les marges et le padding du body, définir la taille de police par défaut et la famille de polices */
 }
 
 nav a{
   text-decoration: none;
+  /* Enlever la décoration par défaut des liens dans la navigation */
 }
-
+ /* Styliser l'élément main pour le centrer et le dimensionner, avec une flexbox pour aligner les éléments enfants */
 main{
   width: 1140px;
   max-width: 80%;
@@ -25,15 +28,16 @@ main{
   position: relative;
   z-index: 100;
 }
-
+/* Styliser les liens dans main avec une couleur noire, du padding et une transition pour l'effet de survol */
 main a{
   /* color: #eee; */
   color: black;
   margin-right: 5px;
   padding: 5px 10px;
   transition: 0.2s;
+  
 }
-
+/* Styliser les liens actifs avec un fond vert et des coins arrondis */
 a.active{
   /* background: #14ff72cb; */
   background-color: #29893a;
